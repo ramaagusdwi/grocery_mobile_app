@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
+
+final textStyle14PrimaryColor = TextStyle(
+  color: primaryColor,
+  fontSize: 14,
+);
+
+final textStyle14BlackColor = TextStyle(
+  color: primaryColor,
+  fontSize: 14,
+);

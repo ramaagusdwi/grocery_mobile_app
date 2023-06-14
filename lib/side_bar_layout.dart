@@ -33,13 +33,18 @@ class SideBarLayout extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
-                children: const [
-                  ListTile(
-                    leading: Icon(Icons.list_alt_sharp,
-                        size: 24, color: Colors.white),
-                    title: Text(
-                      'Your last choices',
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                children:  [
+                  GestureDetector(
+                    onTap: () {
+                      
+                    },
+                    child: const ListTile(
+                      leading: Icon(Icons.list_alt_sharp,
+                          size: 24, color: Colors.white),
+                      title: Text(
+                        'Your last choices',
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
                     ),
                   ),                 
                   ListTile(
