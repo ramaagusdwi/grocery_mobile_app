@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
 import 'package:grocery_delivery_mobile_app/resources/text_style_resource.dart';
+import 'package:grocery_delivery_mobile_app/widgets/gap_height.dart';
+import 'package:grocery_delivery_mobile_app/widgets/gap_width.dart';
 import 'package:grocery_delivery_mobile_app/widgets/side_bar_layout.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,10 +10,44 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Ini home',
-        style: textStyle14PrimaryColor,
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Icon(
+                  Icons.menu,
+                ),
+                Column(
+                  children: [
+                    const Text(
+                      'Location',
+                      style: textStyle14SecondaryTextColor,
+                    ),
+                    const GapHeight(4.0),
+                    Row(
+                      children: [
+                        const Icon(Icons.location_on),
+                        GapWidth(2.0),
+                        const Text('New York, USA',
+                            style: textStyle14BlackColorMedium),
+                        GapWidth(2.0),
+                        const Icon(Icons.keyboard_arrow_down),
+                      ],
+                    )
+                  ],
+                ),
+                const Icon(
+                  Icons.notifications,
+                  color: Colors.black,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
