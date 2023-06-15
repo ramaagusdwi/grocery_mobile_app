@@ -53,7 +53,6 @@ class _MainScreenState extends State<MainScreen>
     super.initState();
   }
 
-
   @override
   void dispose() {
     controller.dispose();
@@ -62,67 +61,67 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   Widget build(BuildContext context) {
-    final unitHeightValue = context.media.size.height * 0.01; 
-    
+    final unitHeightValue = context.media.size.height * 0.01;
+
     return DefaultTabController(
       initialIndex: _currentIndex,
       length: controller.length,
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: Colors.white,
-          key: key,
-          drawer: SideBarLayout(),
-          appBar: PreferredSize(
-            preferredSize:
-                const Size.fromHeight(80.0), // here the desired height
-            child: AppBar(
-              elevation: 0,
-              backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-              centerTitle: true,
-              title: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Location',
-                      style: textStyle14BlackColorLight,
-                    ),
-                    const GapHeight(4.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(Icons.location_on, color: blackColor),
-                        GapWidth(2.0),
-                        const Text('New York, USA',
-                            style: textStyle14BlackColorMedium),
-                        GapWidth(2.0),
-                        const Icon(Icons.keyboard_arrow_down,
-                            color: blackColor),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              leading: Builder(builder: (context) {
-                return IconButton(
-                  icon: const Icon(
-                    Icons.menu,
-                    color: blackColor,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        key: key,
+        drawer: SideBarLayout(),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(80.0), // here the desired height
+          child: AppBar(
+            elevation: 0,
+            backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+            centerTitle: true,
+            title: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Location',
+                    style: textStyle14BlackColorLight,
                   ),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                );
-              }),
-              actions: const [
-                Icon(
-                  Icons.notifications,
-                  color: Colors.black,
-                ),
-              ],
+                  const GapHeight(4.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.location_on, color: blackColor),
+                      GapWidth(2.0),
+                      const Text('New York, USA',
+                          style: textStyle14BlackColorMedium),
+                      GapWidth(2.0),
+                      const Icon(Icons.keyboard_arrow_down, color: blackColor),
+                    ],
+                  )
+                ],
+              ),
             ),
+            leading: Builder(builder: (context) {
+              return IconButton(
+                icon: const Icon(
+                  Icons.menu,
+                  color: blackColor,
+                ),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            }),
+            actions: const [
+              Icon(
+                Icons.notifications,
+                color: Colors.black,
+              ),
+            ],
           ),
-          body: TabBarView(
+        ),
+        body: SafeArea(
+          top: true,
+          bottom: true,
+          child: TabBarView(
             controller: controller,
             children: const [
               HomeScreen(),
@@ -132,11 +131,20 @@ class _MainScreenState extends State<MainScreen>
               Icon(Icons.directions_bike),
             ],
           ),
-          bottomNavigationBar: TabBar(
+        ),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.fromLTRB(4.0, 0.0, 4.0, 16.0),
+          child: TabBar(
             controller: controller,
             unselectedLabelColor: Colors.grey,
             labelColor: primaryColor,
             indicatorColor: primaryColor,
+            labelStyle: textStyle10PrimaryColor.copyWith(
+              fontSize: multiplier * unitHeightValue,
+            ), //For Selected tab
+            unselectedLabelStyle: textStyle10BlackSecondaryTextColor.copyWith(
+              fontSize: multiplier * unitHeightValue,
+            ), //For Un-selected Tabs
             onTap: (index) {
               setState(() {
                 _currentIndex = index;
@@ -158,24 +166,26 @@ class _MainScreenState extends State<MainScreen>
   Widget _bottomNavItem(
       {required BottomNavItemModel item,
       required bool selected,
-      required BuildContext context}) {
-    final unitHeightValue = context.media.size.height * 0.01;
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-          Tab(icon: selected ? item.iconActive : item.icon),
-          const GapHeight(4),
-          Text(
-            item.name,
-            style: selected
-              ? textStyle10PrimaryColor.copyWith(
-                  fontSize: multiplier * unitHeightValue,
-                )
-              : textStyle10BlackSecondaryTextColor.copyWith(
-                  fontSize: multiplier * unitHeightValue,
-                ),
-          )
-      ],
+      required BuildContext context}) { 
+    return Tab(
+      icon: selected ? item.iconActive : item.icon,
+      text: item.name,
     );
+    // return Column(
+    //   mainAxisSize: MainAxisSize.min,
+    //   children: [
+    //     Tab(icon: selected ? item.iconActive : item.icon),
+    //       Text(
+    //         item.name,
+    //         style: selected
+    //           ? textStyle10PrimaryColor.copyWith(
+    //               fontSize: multiplier * unitHeightValue,
+    //             )
+    //           : textStyle10BlackSecondaryTextColor.copyWith(
+    //               fontSize: multiplier * unitHeightValue,
+    //             ),
+    //       )
+    //   ],
+    // );
   }
 }
