@@ -3,5 +3,7 @@ import 'package:flutter/material.dart';
 class BottomNavItemModel {
   final String name;
   final Icon icon;
-  BottomNavItemModel({required this.name, required this.icon});
+  final Icon iconActive;
+  BottomNavItemModel(
+      {required this.name, required this.icon, required this.iconActive});
 }

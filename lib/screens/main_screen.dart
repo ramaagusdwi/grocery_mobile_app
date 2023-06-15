@@ -20,11 +20,26 @@ class _MainScreenState extends State<MainScreen>
   late final TabController controller;
   int indexActive = 0;
   final List<BottomNavItemModel> _bottomNavData = [
-    BottomNavItemModel(name: 'Home', icon: Icon(Icons.home)),
-    BottomNavItemModel(name: 'Favourite', icon: Icon(Icons.favorite_outline)),
-    BottomNavItemModel(name: 'Wallet', icon: Icon(Icons.wallet_outlined)),
-    BottomNavItemModel(name: 'Cart', icon: Icon(Icons.shopping_cart_outlined)),
-    BottomNavItemModel(name: 'Profile', icon: Icon(Icons.person_2_outlined)),
+    BottomNavItemModel(
+        name: 'Home',
+        icon: const Icon(Icons.home_outlined),
+        iconActive: const Icon(Icons.home)),
+    BottomNavItemModel(
+        name: 'Favourite',
+        icon: const Icon(Icons.favorite_outline),
+        iconActive: const Icon(Icons.favorite)),
+    BottomNavItemModel(
+        name: 'Wallet',
+        icon: const Icon(Icons.wallet_outlined),
+        iconActive: const Icon(Icons.wallet)),
+    BottomNavItemModel(
+        name: 'Cart',
+        icon: const Icon(Icons.shopping_cart_outlined),
+        iconActive: const Icon(Icons.shopping_cart)),
+    BottomNavItemModel(
+        name: 'Profile',
+        icon: const Icon(Icons.person_outlined),
+        iconActive: const Icon(Icons.person)),
   ];
 
   @override
@@ -61,8 +76,7 @@ class _MainScreenState extends State<MainScreen>
           tabs: [
             for (int index = 0; index < _bottomNavData.length; index++)
               _bottomNavItem(
-                  name: _bottomNavData[index].name,
-                  icon: _bottomNavData[index].icon,
+                  item: _bottomNavData[index],                  
                   selected: index == indexActive)
           ],
         ),
@@ -71,14 +85,14 @@ class _MainScreenState extends State<MainScreen>
   }
 
   Widget _bottomNavItem(
-          {required String name, required Icon icon, required bool selected}) =>
+          {required BottomNavItemModel item, required bool selected}) =>
       Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Tab(icon: icon),
+          Tab(icon: selected ? item.iconActive : item.icon),
           const GapHeight(4),
           Text(
-            name,
+            item.name,
             style: selected
                 ? textStyle10PrimaryColor
                 : textStyle10BlackSecondaryTextColor,
