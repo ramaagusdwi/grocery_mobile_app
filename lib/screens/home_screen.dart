@@ -15,37 +15,40 @@ class HomeScreen extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Icon(
-                  Icons.menu,
-                ),
-                Column(
-                  children: [
-                    const Text(
-                      'Location',
-                      style: textStyle14SecondaryTextColor,
-                    ),
-                    const GapHeight(4.0),
-                    Row(
-                      children: [
-                        const Icon(Icons.location_on),
-                        GapWidth(2.0),
-                        const Text('New York, USA',
-                            style: textStyle14BlackColorMedium),
-                        GapWidth(2.0),
-                        const Icon(Icons.keyboard_arrow_down),
-                      ],
-                    )
-                  ],
-                ),
-                const Icon(
-                  Icons.notifications,
-                  color: Colors.black,
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     InkWell(
+            //       onTap: () =>  Scaffold.of(context).openDrawer(),
+            //       child: const Icon(
+            //         Icons.menu,
+            //       ),
+            //     ),
+            //     Column(
+            //       children: [
+            //         const Text(
+            //           'Location',
+            //           style: textStyle14SecondaryTextColor,
+            //         ),
+            //         const GapHeight(4.0),
+            //         Row(
+            //           children: [
+            //             const Icon(Icons.location_on),
+            //             GapWidth(2.0),
+            //             const Text('New York, USA',
+            //                 style: textStyle14BlackColorMedium),
+            //             GapWidth(2.0),
+            //             const Icon(Icons.keyboard_arrow_down),
+            //           ],
+            //         )
+            //       ],
+            //     ),
+            //     const Icon(
+            //       Icons.notifications,
+            //       color: Colors.black,
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),

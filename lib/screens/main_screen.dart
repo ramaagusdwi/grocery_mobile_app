@@ -5,9 +5,11 @@ import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
 import 'package:grocery_delivery_mobile_app/resources/text_style_resource.dart';
 import 'package:grocery_delivery_mobile_app/screens/home_screen.dart';
 import 'package:grocery_delivery_mobile_app/widgets/bottom_nav_item.dart';
+import 'package:grocery_delivery_mobile_app/widgets/gap_width.dart';
 import 'package:grocery_delivery_mobile_app/widgets/side_bar_layout.dart';
 import 'package:grocery_delivery_mobile_app/widgets/gap_height.dart';
 
+final GlobalKey<ScaffoldState> key = GlobalKey(); // Create a key
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -19,6 +21,8 @@ class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   late final TabController controller;
   int indexActive = 0;
+
+
   final List<BottomNavItemModel> _bottomNavData = [
     BottomNavItemModel(
         name: 'Home',
@@ -53,7 +57,55 @@ class _MainScreenState extends State<MainScreen>
     return DefaultTabController(
       length: controller.length,
       child: Scaffold(
+        backgroundColor: Colors.white,
+        key: key,
         drawer: SideBarLayout(),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(80.0), // here the desired height
+          child: AppBar(
+            elevation: 0,
+            backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+            centerTitle: true,
+            title: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Location',
+                    style: textStyle14SecondaryTextColor,
+                  ),
+                  const GapHeight(4.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.location_on, color: blackColor),
+                      GapWidth(2.0),
+                      const Text('New York, USA',
+                          style: textStyle14BlackColorMedium),
+                      GapWidth(2.0),
+                      const Icon(Icons.keyboard_arrow_down, color: blackColor),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            leading: IconButton(
+              icon: const Icon(
+                Icons.menu,
+                color: blackColor,
+              ),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            ),
+            actions: const [
+              Icon(
+                Icons.notifications,
+                color: Colors.black,
+              ),
+            ],
+          ),
+        ),
         body: const TabBarView(
           children: [
             HomeScreen(),
