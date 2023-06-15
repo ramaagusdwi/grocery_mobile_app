@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
 import 'package:grocery_delivery_mobile_app/resources/text_style_resource.dart';
 import 'package:grocery_delivery_mobile_app/screens/home_screen.dart';
-import 'package:grocery_delivery_mobile_app/side_bar_layout.dart';
+import 'package:grocery_delivery_mobile_app/widgets/side_bar_layout.dart';
 import 'package:grocery_delivery_mobile_app/widgets/gap_height.dart';
 
 class MainScreen extends StatefulWidget {
