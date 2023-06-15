@@ -53,4 +53,11 @@ const textStyle10BlackSecondaryTextColor = TextStyle(
   fontSize: 10,
 );
 
+TextStyle whiteOpacity40TextStyle = TextStyle(
+  color: whiteColor.withOpacity(0.4),
+  fontSize: 10,
+);
+
+
+
 
