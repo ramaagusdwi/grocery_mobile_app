@@ -57,43 +57,6 @@ class _MainScreenState extends State<MainScreen>
             setState(() {
               indexActive = index;
             });
-            switch (index) {
-              case 0:
-                {
-                  // statements;
-                  // context.go('/');
-                }
-                break;
-
-              case 1:
-                {
-                  //statements;
-                }
-                break;
-
-              case 2:
-                {
-                  //statements;
-                }
-                break;
-
-              case 3:
-                {
-                  //statements;
-                }
-                break;
-              case 4:
-                {
-                  //statements;
-                }
-                break;
-              default:
-                {
-                  //statements;
-                  // context.go('/');
-                }
-                break;
-            }
           },
           tabs: [
             for (int index = 0; index < _bottomNavData.length; index++)
