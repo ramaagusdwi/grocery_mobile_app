@@ -97,14 +97,17 @@ class _MainScreenState extends State<MainScreen>
                 ],
               ),
             ),
-            leading: IconButton(
-              icon: const Icon(
-                Icons.menu,
-                color: blackColor,
-              ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
+            leading: Builder(builder: (context) {
+              return IconButton(
+                icon: const Icon(
+                  Icons.menu,
+                  color: blackColor,
+                ),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            }
             ),
             actions: const [
               Icon(
