@@ -6,8 +6,8 @@ const backgroundColor = Color(0xFFfcfcfc);
 
 const blackColor = Colors.black;
 const whiteColor = Colors.white;
-
 const Color whiteOpacity6 = Color(0x33FFFFFF);
+const Color silverColor = Color(0xFFCACACA);
 
 //border text field color
 Color get borderError => Colors.red.shade400;
