@@ -18,7 +18,17 @@ class HomeScreen extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
-            CustomTextField(
+            CustomTextField(              
+              prefixIcon: const Icon(Icons.search, color: blackColor),
+              suffixIcon: Container(
+                color: primaryColor,
+                child: const Icon(
+                  Icons.format_list_bulleted_rounded,
+                  color: whiteColor,
+                  size: 24,
+                ),
+              ),
+              iconSquareSize: 42,
               filledColor: whiteColor,
               useBorderSide: false,
               textEditingController: searchController,

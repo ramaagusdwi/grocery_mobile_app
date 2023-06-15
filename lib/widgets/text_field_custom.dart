@@ -24,6 +24,7 @@ class CustomTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputTypeFormatters;
   final Function(String?)? onSubmitted;
   final Function(String?)? onChanged;
+  final double? iconSquareSize; 
 
   CustomTextField({
     required this.textEditingController,
@@ -47,6 +48,7 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.errorText,
     this.errorStyle,
+    this.iconSquareSize,
   });
 
   @override
@@ -56,7 +58,7 @@ class CustomTextField extends StatelessWidget {
       horizontal: 16,
     );
 
-    final double iconSquareSize = 24;
+    final double iconSquareSizeFinal = iconSquareSize ?? 24;
 
     final double leftContentPadding = defaultContentPadding.left;
     final double rightContentPadding = defaultContentPadding.right;
@@ -118,7 +120,7 @@ class CustomTextField extends StatelessWidget {
                   borderRadius: BorderRadius.circular(9.0),
                   borderSide: useBorderSide
                       ? BorderSide(
-                      width: 1.5,
+                          width: 1.5,
                           color: errorText != null ? borderError : borderActive)
                       : BorderSide.none,
                 ),
@@ -126,7 +128,7 @@ class CustomTextField extends StatelessWidget {
                     borderRadius: BorderRadius.circular(9.0),
                     borderSide: useBorderSide
                         ? BorderSide(
-                        width: 1.5,
+                            width: 1.5,
                             color:
                                 errorText != null ? borderError : borderActive)
                         : BorderSide.none),
@@ -145,11 +147,11 @@ class CustomTextField extends StatelessWidget {
                     [
                       rightContentPadding + 29,
                       if (suffixIcon != null) ...[
-                        if (suffixIcon != null) iconSquareSize,
+                        if (suffixIcon != null) iconSquareSizeFinal,
                         iconToInputFieldGap,
                       ]
                     ].reduce((value, element) => value + element),
-                    iconSquareSize + 12,
+                    iconSquareSizeFinal + 12,
                   ),
                 ),
                 prefixIcon: prefixIcon,
