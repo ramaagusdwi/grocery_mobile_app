@@ -80,7 +80,7 @@ class _MainScreenState extends State<MainScreen>
                 children: [
                   const Text(
                     'Location',
-                    style: textStyle14SecondaryTextColor,
+                    style: textStyle14BlackColorLight,
                   ),
                   const GapHeight(4.0),
                   Row(

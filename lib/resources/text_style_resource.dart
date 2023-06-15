@@ -11,10 +11,18 @@ const textStyle14SecondaryTextColor = TextStyle(
   fontSize: 14,
 );
 
+
 const textStyle14BlackColor = TextStyle(
   color: blackColor,
   fontSize: 14,
 );
+
+const textStyle14BlackColorLight = TextStyle(
+  color: blackColor,
+  fontSize: 14,
+  fontWeight: FontWeight.w300,
+);
+
 
 const textStyle14BlackColorMedium =
     TextStyle(color: blackColor, fontSize: 14, fontWeight: FontWeight.w500);
