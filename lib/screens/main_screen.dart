@@ -67,86 +67,89 @@ class _MainScreenState extends State<MainScreen>
     return DefaultTabController(
       initialIndex: _currentIndex,
       length: controller.length,
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        key: key,
-        drawer: SideBarLayout(),
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(80.0), // here the desired height
-          child: AppBar(
-            elevation: 0,
-            backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-            centerTitle: true,
-            title: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Location',
-                    style: textStyle14BlackColorLight,
-                  ),
-                  const GapHeight(4.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.location_on, color: blackColor),
-                      GapWidth(2.0),
-                      const Text('New York, USA',
-                          style: textStyle14BlackColorMedium),
-                      GapWidth(2.0),
-                      const Icon(Icons.keyboard_arrow_down, color: blackColor),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            leading: Builder(builder: (context) {
-              return IconButton(
-                icon: const Icon(
-                  Icons.menu,
-                  color: blackColor,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          key: key,
+          drawer: SideBarLayout(),
+          appBar: PreferredSize(
+            preferredSize:
+                const Size.fromHeight(80.0), // here the desired height
+            child: AppBar(
+              elevation: 0,
+              backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+              centerTitle: true,
+              title: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Location',
+                      style: textStyle14BlackColorLight,
+                    ),
+                    const GapHeight(4.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.location_on, color: blackColor),
+                        GapWidth(2.0),
+                        const Text('New York, USA',
+                            style: textStyle14BlackColorMedium),
+                        GapWidth(2.0),
+                        const Icon(Icons.keyboard_arrow_down,
+                            color: blackColor),
+                      ],
+                    )
+                  ],
                 ),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              );
-            }
-            ),
-            actions: const [
-              Icon(
-                Icons.notifications,
-                color: Colors.black,
               ),
+              leading: Builder(builder: (context) {
+                return IconButton(
+                  icon: const Icon(
+                    Icons.menu,
+                    color: blackColor,
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                );
+              }),
+              actions: const [
+                Icon(
+                  Icons.notifications,
+                  color: Colors.black,
+                ),
+              ],
+            ),
+          ),
+          body: TabBarView(
+            controller: controller,
+            children: const [
+              HomeScreen(),
+              Icon(Icons.directions_transit),
+              Icon(Icons.directions_bike),
+              Icon(Icons.directions_transit),
+              Icon(Icons.directions_bike),
             ],
           ),
-        ),
-        body: TabBarView(
-          controller: controller,
-          children: const [
-            HomeScreen(),
-            Icon(Icons.directions_transit),
-            Icon(Icons.directions_bike),
-            Icon(Icons.directions_transit),
-            Icon(Icons.directions_bike),
-          ],
-        ),
-        bottomNavigationBar: TabBar(
-          controller: controller,
-          unselectedLabelColor: Colors.grey,
-          labelColor: primaryColor,
-          indicatorColor: primaryColor,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          tabs: [
-            for (int index = 0; index < _bottomNavData.length; index++)
-              _bottomNavItem(
-                  item: _bottomNavData[index],
-                  selected: index == _currentIndex,
-                  context: context)
-          ],
+          bottomNavigationBar: TabBar(
+            controller: controller,
+            unselectedLabelColor: Colors.grey,
+            labelColor: primaryColor,
+            indicatorColor: primaryColor,
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            tabs: [
+              for (int index = 0; index < _bottomNavData.length; index++)
+                _bottomNavItem(
+                    item: _bottomNavData[index],
+                    selected: index == _currentIndex,
+                    context: context)
+            ],
+          ),
         ),
       ),
     );
