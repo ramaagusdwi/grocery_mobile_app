@@ -89,7 +89,7 @@ class _MainScreenState extends State<MainScreen>
                 GapHeight(4),
                 Text(
                   'Home',
-                  style: textStyle14PrimaryColor,
+                  style: textStyle10PrimaryColor,
                 )
               ],
             ),
@@ -100,7 +100,7 @@ class _MainScreenState extends State<MainScreen>
                 GapHeight(4),
                 Text(
                   'Favourite',
-                  style: textStyle14BlackColor,
+                  style: textStyle10BlackColor,
                 )
               ],
             ),
@@ -111,7 +111,7 @@ class _MainScreenState extends State<MainScreen>
                 GapHeight(4),
                 Text(
                   'Wallet',
-                  style: textStyle14BlackColor,
+                  style: textStyle10BlackColor,
                 )
               ],
             ),
@@ -122,7 +122,7 @@ class _MainScreenState extends State<MainScreen>
                 GapHeight(4),
                 Text(
                   'Cart',
-                  style: textStyle14BlackColor,
+                  style: textStyle10BlackColor,
                 )
               ],
             ),
@@ -133,7 +133,7 @@ class _MainScreenState extends State<MainScreen>
                 GapHeight(4),
                 Text(
                   'Profile',
-                  style: textStyle14BlackColor,
+                  style: textStyle10BlackColor,
                 )
               ],
             ),

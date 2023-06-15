@@ -6,7 +6,13 @@ final textStyle14PrimaryColor = TextStyle(
   fontSize: 14,
 );
 
-final textStyle14BlackColor = TextStyle(
+
+final textStyle10PrimaryColor = TextStyle(
   color: primaryColor,
-  fontSize: 14,
+  fontSize: 10,
+);
+
+final textStyle10BlackColor = TextStyle(
+  color: primaryColor,
+  fontSize: 10,
 );
