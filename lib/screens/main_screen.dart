@@ -76,13 +76,14 @@ class _MainScreenState extends State<MainScreen>
             elevation: 0,
             backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
             centerTitle: true,
-            title: Center(
+            title: Padding(
+              padding: const EdgeInsets.only(top: 22.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Text(
                     'Location',
-                    style: textStyle14BlackColorLight,
+                    style: textStyle10BlackColorLight,
                   ),
                   const GapHeight(4.0),
                   Row(
@@ -91,7 +92,7 @@ class _MainScreenState extends State<MainScreen>
                       const Icon(Icons.location_on, color: blackColor),
                       GapWidth(2.0),
                       const Text('New York, USA',
-                          style: textStyle14BlackColorMedium),
+                          style: textStyle10BlackColorMedium),
                       GapWidth(2.0),
                       const Icon(Icons.keyboard_arrow_down, color: blackColor),
                     ],

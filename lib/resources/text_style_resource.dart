@@ -27,9 +27,17 @@ const textStyle14BlackColorLight = TextStyle(
   fontWeight: FontWeight.w300,
 );
 
+const textStyle10BlackColorLight = TextStyle(
+  color: blackColor,
+  fontSize: 10,
+  fontWeight: FontWeight.w300,
+);
 
 const textStyle14BlackColorMedium =
     TextStyle(color: blackColor, fontSize: 14, fontWeight: FontWeight.w500);
+
+const textStyle10BlackColorMedium =
+    TextStyle(color: blackColor, fontSize: 10, fontWeight: FontWeight.w500);
 
 const textStyle14BlackColorBold =
     TextStyle(color: blackColor, fontSize: 14, fontWeight: FontWeight.bold);
