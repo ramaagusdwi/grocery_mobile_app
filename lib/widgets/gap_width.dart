@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GapWidth extends StatelessWidget {
-  final width;
+  final double width;
   GapWidth(this.width);
 
   @override
