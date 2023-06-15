@@ -23,9 +23,9 @@ class HomeScreen extends StatelessWidget {
               useBorderSide: false,
               textEditingController: searchController,
               labelText: 'Search food, drink, etc',
-              labelStyle: whiteOpacity40TextStyle,
+              labelStyle: textStyle12SilverColor,
               hintText: 'Search food, drink, etc',
-              hintStyle: whiteOpacity40TextStyle,
+              hintStyle: textStyle12SilverColor,
               onChanged: (value) {},
               textInputType: TextInputType.emailAddress,
               validator: (value) {

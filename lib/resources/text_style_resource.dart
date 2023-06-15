@@ -58,6 +58,11 @@ TextStyle whiteOpacity40TextStyle = TextStyle(
   fontSize: 10,
 );
 
+const textStyle12SilverColor = TextStyle(
+  color: silverColor,
+  fontSize: 12,
+);
+
 
 
 
