@@ -64,91 +64,95 @@ class CustomTextField extends StatelessWidget {
     // gap between prefix/suffix icon & input field
     final double iconToInputFieldGap = 10;
 
-    return TextFormField(
-      obscureText: obsureText,
-      inputFormatters: inputTypeFormatters,
-      keyboardType: textInputType,
-      style: TextStyle(
-          color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500),
-      enabled: enabled,
-      textAlign: textAlign,
-      controller: textEditingController,
-      maxLines: maxLines,
-      decoration: collapsedInputDecoration
-          ? InputDecoration.collapsed(
-              floatingLabelBehavior: FloatingLabelBehavior.never,
-              filled: true,
-              fillColor: filledColor ?? Color(0xFF253D42),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9.0),
-                borderSide: useBorderSide
-                    ? const BorderSide(width: 1.5, color: whiteOpacity6)
-                    : BorderSide.none,
-              ),
-              hintText: hintText,
-              hintStyle: hintStyle,
-            )
-          : InputDecoration(
-              floatingLabelBehavior: FloatingLabelBehavior.never,
-              filled: true,
-              fillColor: filledColor ?? Color(0xFF253D42),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9.0),
-                borderSide: useBorderSide
-                    ? const BorderSide(width: 1.5, color: whiteOpacity6)
-                    : BorderSide.none,
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9.0),
-                borderSide: useBorderSide
-                    ? const BorderSide(width: 1.5, color: whiteOpacity6)
-                    : BorderSide.none,
-              ),
+    return Material(
+      elevation: 20.0,
+      shadowColor: shadowColor,
+      child: TextFormField(
+        obscureText: obsureText,
+        inputFormatters: inputTypeFormatters,
+        keyboardType: textInputType,
+        style: TextStyle(
+            color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500),
+        enabled: enabled,
+        textAlign: textAlign,
+        controller: textEditingController,
+        maxLines: maxLines,
+        decoration: collapsedInputDecoration
+            ? InputDecoration.collapsed(
+                floatingLabelBehavior: FloatingLabelBehavior.never,
+                filled: true,
+                fillColor: filledColor ?? Color(0xFF253D42),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(9.0),
+                  borderSide: useBorderSide
+                      ? const BorderSide(width: 1.5, color: whiteOpacity6)
+                      : BorderSide.none,
+                ),
+                hintText: hintText,
+                hintStyle: hintStyle,
+              )
+            : InputDecoration(
+                floatingLabelBehavior: FloatingLabelBehavior.never,
+                filled: true,
+                fillColor: filledColor ?? Color(0xFF253D42),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(9.0),
+                  borderSide: useBorderSide
+                      ? const BorderSide(width: 1.5, color: whiteOpacity6)
+                      : BorderSide.none,
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(9.0),
+                  borderSide: useBorderSide
+                      ? const BorderSide(width: 1.5, color: whiteOpacity6)
+                      : BorderSide.none,
+                ),
 
-              disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9.0),
-                borderSide: useBorderSide
-                    ? const BorderSide(width: 1.5, color: whiteOpacity6)
-                    : BorderSide.none,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(9.0),
-                borderSide: BorderSide(
-                    width: 1.5,
-                    color: errorText != null ? borderError : borderActive),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(9.0),
+                  borderSide: useBorderSide
+                      ? const BorderSide(width: 1.5, color: whiteOpacity6)
+                      : BorderSide.none,
+                ),
+                focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(9.0),
                   borderSide: BorderSide(
                       width: 1.5,
-                      color: errorText != null ? borderError : borderActive)),
-              labelText: labelText,
-              labelStyle: labelStyle,
-              hintText: hintText,
-              hintStyle: hintStyle,
-              errorText: errorText,
-              errorStyle: errorStyle,
-              suffixIcon: suffixIcon,
-              // suffixIconConstraints: BoxConstraints.tight(
-              //   const Size(30, 20),
-              // ),
-              suffixIconConstraints: BoxConstraints.tight(
-                Size(
-                  [
-                    rightContentPadding + 29,
-                    if (suffixIcon != null) ...[
-                      if (suffixIcon != null) iconSquareSize,
-                      iconToInputFieldGap,
-                    ]
-                  ].reduce((value, element) => value + element),
-                  iconSquareSize + 12,
+                      color: errorText != null ? borderError : borderActive),
                 ),
+                focusedErrorBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(9.0),
+                    borderSide: BorderSide(
+                        width: 1.5,
+                        color: errorText != null ? borderError : borderActive)),
+                labelText: labelText,
+                labelStyle: labelStyle,
+                hintText: hintText,
+                hintStyle: hintStyle,
+                errorText: errorText,
+                errorStyle: errorStyle,
+                suffixIcon: suffixIcon,
+                // suffixIconConstraints: BoxConstraints.tight(
+                //   const Size(30, 20),
+                // ),
+                suffixIconConstraints: BoxConstraints.tight(
+                  Size(
+                    [
+                      rightContentPadding + 29,
+                      if (suffixIcon != null) ...[
+                        if (suffixIcon != null) iconSquareSize,
+                        iconToInputFieldGap,
+                      ]
+                    ].reduce((value, element) => value + element),
+                    iconSquareSize + 12,
+                  ),
+                ),
+                prefixIcon: prefixIcon,
               ),
-              prefixIcon: prefixIcon,
-            ),
-      validator: validator,
-      onFieldSubmitted: onSubmitted,
-      onChanged: onChanged,
+        validator: validator,
+        onFieldSubmitted: onSubmitted,
+        onChanged: onChanged,
+      ),
     );
   }
 }

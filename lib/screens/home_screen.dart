@@ -4,17 +4,38 @@ import 'package:grocery_delivery_mobile_app/resources/text_style_resource.dart';
 import 'package:grocery_delivery_mobile_app/widgets/gap_height.dart';
 import 'package:grocery_delivery_mobile_app/widgets/gap_width.dart';
 import 'package:grocery_delivery_mobile_app/widgets/side_bar_layout.dart';
+import 'package:grocery_delivery_mobile_app/widgets/text_field_custom.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    final TextEditingController searchController = TextEditingController();
+
+    return SafeArea(
       child: Padding(
         padding: EdgeInsets.all(8.0),
         child: Column(
-          children: [],
+          children: [
+            CustomTextField(
+              filledColor: whiteColor,
+              useBorderSide: false,
+              textEditingController: searchController,
+              labelText: 'Enter Email',
+              labelStyle: whiteOpacity40TextStyle,
+              hintText: 'Enter Email',
+              hintStyle: whiteOpacity40TextStyle,
+              onChanged: (value) {},
+              textInputType: TextInputType.emailAddress,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your keyword';
+                }
+                return null;
+              },
+            ),
+          ],
         ),
       ),
     );

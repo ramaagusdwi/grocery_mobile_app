@@ -12,3 +12,4 @@ const Color whiteOpacity6 = Color(0x33FFFFFF);
 //border text field color
 Color get borderError => Colors.red.shade400;
 Color get borderActive => primaryColor;
+const shadowColor = Color(0xFFF8F8F9);
