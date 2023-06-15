@@ -10,6 +10,7 @@ import 'package:grocery_delivery_mobile_app/widgets/side_bar_layout.dart';
 import 'package:grocery_delivery_mobile_app/widgets/gap_height.dart';
 
 final GlobalKey<ScaffoldState> key = GlobalKey(); // Create a key
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -21,7 +22,6 @@ class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   late final TabController controller;
   int indexActive = 0;
-
 
   final List<BottomNavItemModel> _bottomNavData = [
     BottomNavItemModel(
@@ -109,7 +109,7 @@ class _MainScreenState extends State<MainScreen>
         body: const TabBarView(
           children: [
             HomeScreen(),
-            Icon(Icons.directions_transit),
+            Icon(Icons.directions_transit),                    
             Icon(Icons.directions_bike),
             Icon(Icons.directions_transit),
             Icon(Icons.directions_bike),
@@ -121,6 +121,7 @@ class _MainScreenState extends State<MainScreen>
           labelColor: primaryColor,
           indicatorColor: primaryColor,
           onTap: (index) {
+            controller.animateTo(index);
             setState(() {
               indexActive = index;
             });
@@ -128,8 +129,7 @@ class _MainScreenState extends State<MainScreen>
           tabs: [
             for (int index = 0; index < _bottomNavData.length; index++)
               _bottomNavItem(
-                  item: _bottomNavData[index],                  
-                  selected: index == indexActive)
+                  item: _bottomNavData[index], selected: index == indexActive)
           ],
         ),
       ),
