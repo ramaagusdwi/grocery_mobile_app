@@ -111,9 +111,12 @@ class _MainScreenState extends State<MainScreen>
               );
             }),
             actions: const [
-              Icon(
-                Icons.notifications,
-                color: Colors.black,
+              Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: Icon(
+                  Icons.notifications,
+                  color: Colors.black,
+                ),
               ),
             ],
           ),
@@ -121,6 +124,8 @@ class _MainScreenState extends State<MainScreen>
         body: SafeArea(
           top: true,
           bottom: true,
+          right: true,
+          left: true,
           child: TabBarView(
             controller: controller,
             children: const [
