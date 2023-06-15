@@ -8,6 +8,7 @@ import 'package:grocery_delivery_mobile_app/widgets/bottom_nav_item.dart';
 import 'package:grocery_delivery_mobile_app/widgets/gap_width.dart';
 import 'package:grocery_delivery_mobile_app/widgets/side_bar_layout.dart';
 import 'package:grocery_delivery_mobile_app/widgets/gap_height.dart';
+import 'package:grocery_delivery_mobile_app/extensions/context_ext.dart';
 
 final GlobalKey<ScaffoldState> key = GlobalKey(); // Create a key
 
@@ -61,6 +62,8 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   Widget build(BuildContext context) {
+    final unitHeightValue = context.media.size.height * 0.01; 
+    
     return DefaultTabController(
       initialIndex: _currentIndex,
       length: controller.length,
@@ -140,7 +143,9 @@ class _MainScreenState extends State<MainScreen>
           tabs: [
             for (int index = 0; index < _bottomNavData.length; index++)
               _bottomNavItem(
-                  item: _bottomNavData[index], selected: index == _currentIndex)
+                  item: _bottomNavData[index],
+                  selected: index == _currentIndex,
+                  context: context)
           ],
         ),
       ),
@@ -148,18 +153,26 @@ class _MainScreenState extends State<MainScreen>
   }
 
   Widget _bottomNavItem(
-          {required BottomNavItemModel item, required bool selected}) =>
-      Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
+      {required BottomNavItemModel item,
+      required bool selected,
+      required BuildContext context}) {
+    final unitHeightValue = context.media.size.height * 0.01;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
           Tab(icon: selected ? item.iconActive : item.icon),
           const GapHeight(4),
           Text(
             item.name,
             style: selected
-                ? textStyle10PrimaryColor
-                : textStyle10BlackSecondaryTextColor,
+              ? textStyle10PrimaryColor.copyWith(
+                  fontSize: multiplier * unitHeightValue,
+                )
+              : textStyle10BlackSecondaryTextColor.copyWith(
+                  fontSize: multiplier * unitHeightValue,
+                ),
           )
-        ],
-      );
+      ],
+    );
+  }
 }

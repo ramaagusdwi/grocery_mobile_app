@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
 
+double multiplier = 1.12;
+double multiplier2 = 2;
+double multiplier14 = 14;
+
 const textStyle14PrimaryColor = TextStyle(
   color: primaryColor,
   fontSize: 14,
