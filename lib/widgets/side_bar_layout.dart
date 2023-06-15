@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
 import 'package:grocery_delivery_mobile_app/widgets/gap_height.dart';
 
 
@@ -10,6 +11,7 @@ class SideBarLayout extends StatelessWidget {
     // TODO: implement build
     return SafeArea(
       child: Container(
+        color: primaryColor,
         width: width * 0.8,
         padding: const EdgeInsets.all(20),
         child: Column(

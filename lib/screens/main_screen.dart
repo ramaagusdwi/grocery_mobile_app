@@ -28,6 +28,7 @@ class _MainScreenState extends State<MainScreen>
     return DefaultTabController(
       length: controller.length,
       child: Scaffold(
+        drawer: SideBarLayout(),
         body: const TabBarView(
           children: [
             HomeScreen(),
