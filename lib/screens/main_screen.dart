@@ -21,7 +21,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   late final TabController controller;
-  int indexActive = 0;
+  int _currentIndex = 0;
 
   final List<BottomNavItemModel> _bottomNavData = [
     BottomNavItemModel(
@@ -52,9 +52,17 @@ class _MainScreenState extends State<MainScreen>
     super.initState();
   }
 
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: _currentIndex,
       length: controller.length,
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -106,10 +114,11 @@ class _MainScreenState extends State<MainScreen>
             ],
           ),
         ),
-        body: const TabBarView(
-          children: [
+        body: TabBarView(
+          controller: controller,
+          children: const [
             HomeScreen(),
-            Icon(Icons.directions_transit),                    
+            Icon(Icons.directions_transit),
             Icon(Icons.directions_bike),
             Icon(Icons.directions_transit),
             Icon(Icons.directions_bike),
@@ -121,15 +130,14 @@ class _MainScreenState extends State<MainScreen>
           labelColor: primaryColor,
           indicatorColor: primaryColor,
           onTap: (index) {
-            controller.animateTo(index);
             setState(() {
-              indexActive = index;
+              _currentIndex = index;
             });
           },
           tabs: [
             for (int index = 0; index < _bottomNavData.length; index++)
               _bottomNavItem(
-                  item: _bottomNavData[index], selected: index == indexActive)
+                  item: _bottomNavData[index], selected: index == _currentIndex)
           ],
         ),
       ),
