@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
 
-final textStyle14PrimaryColor = TextStyle(
+const textStyle14PrimaryColor = TextStyle(
   color: primaryColor,
   fontSize: 14,
 );
 
+const textStyle14SecondaryTextColor = TextStyle(
+  color: secondaryTextColor,
+  fontSize: 14,
+);
 
-final textStyle10PrimaryColor = TextStyle(
+const textStyle10PrimaryColor = TextStyle(
   color: primaryColor,
   fontSize: 10,
 );
 
-final textStyle10BlackColor = TextStyle(
-  color: primaryColor,
+const textStyle10BlackSecondaryTextColor = TextStyle(
+  color: secondaryTextColor,
   fontSize: 10,
 );
