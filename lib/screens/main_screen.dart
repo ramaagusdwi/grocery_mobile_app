@@ -67,14 +67,14 @@ class _MainScreenState extends State<MainScreen>
       initialIndex: _currentIndex,
       length: controller.length,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: backgroundColor,
         key: key,
         drawer: SideBarLayout(),
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(80.0), // here the desired height
           child: AppBar(
             elevation: 0,
-            backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+            backgroundColor: backgroundColor,
             centerTitle: true,
             title: Padding(
               padding: const EdgeInsets.only(top: 22.0),
