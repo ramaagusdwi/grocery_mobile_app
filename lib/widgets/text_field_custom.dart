@@ -1,3 +1,4 @@
+import 'package:control_style/control_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
@@ -24,7 +25,9 @@ class CustomTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputTypeFormatters;
   final Function(String?)? onSubmitted;
   final Function(String?)? onChanged;
-  final double? iconSquareSize; 
+  final double? iconSquareSize;
+  final double radius;
+  final double heightTextField;
 
   CustomTextField({
     required this.textEditingController,
@@ -33,6 +36,7 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     required this.hintStyle,
     required this.validator,
+    required this.heightTextField,
     this.suffixIcon,
     this.prefixIcon,
     this.obsureText = false,
@@ -49,6 +53,8 @@ class CustomTextField extends StatelessWidget {
     this.errorText,
     this.errorStyle,
     this.iconSquareSize,
+    this.radius = 8,
+   
   });
 
   @override
@@ -66,100 +72,99 @@ class CustomTextField extends StatelessWidget {
     // gap between prefix/suffix icon & input field
     final double iconToInputFieldGap = 10;
 
-    return Material(
-      elevation: 20.0,
-      shadowColor: shadowColor,
-      child: TextFormField(
-        obscureText: obsureText,
-        inputFormatters: inputTypeFormatters,
-        keyboardType: textInputType,
-        style: TextStyle(
-            color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500),
-        enabled: enabled,
-        textAlign: textAlign,
-        controller: textEditingController,
-        maxLines: maxLines,
-        decoration: collapsedInputDecoration
-            ? InputDecoration.collapsed(
-                floatingLabelBehavior: FloatingLabelBehavior.never,
-                filled: true,
-                fillColor: filledColor ?? Color(0xFF253D42),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9.0),
-                  borderSide: useBorderSide
-                      ? const BorderSide(width: 1.5, color: whiteOpacity6)
-                      : BorderSide.none,
-                ),
-                hintText: hintText,
-                hintStyle: hintStyle,
-              )
-            : InputDecoration(
-                floatingLabelBehavior: FloatingLabelBehavior.never,
-                filled: true,
-                fillColor: filledColor ?? Color(0xFF253D42),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9.0),
-                  borderSide: useBorderSide
-                      ? const BorderSide(width: 1.5, color: whiteOpacity6)
-                      : BorderSide.none,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9.0),
-                  borderSide: useBorderSide
-                      ? const BorderSide(width: 1.5, color: whiteOpacity6)
-                      : BorderSide.none,
-                ),
-
-                disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9.0),
-                  borderSide: useBorderSide
-                      ? const BorderSide(width: 1.5, color: whiteOpacity6)
-                      : BorderSide.none,
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(9.0),
-                  borderSide: useBorderSide
-                      ? BorderSide(
-                          width: 1.5,
-                          color: errorText != null ? borderError : borderActive)
-                      : BorderSide.none,
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(9.0),
-                    borderSide: useBorderSide
-                        ? BorderSide(
-                            width: 1.5,
-                            color:
-                                errorText != null ? borderError : borderActive)
-                        : BorderSide.none),
-                labelText: labelText,
-                labelStyle: labelStyle,
-                hintText: hintText,
-                hintStyle: hintStyle,
-                errorText: errorText,
-                errorStyle: errorStyle,
-                suffixIcon: suffixIcon,
-                // suffixIconConstraints: BoxConstraints.tight(
-                //   const Size(30, 20),
-                // ),
-                suffixIconConstraints: BoxConstraints.tight(
-                  Size(
-                    [
-                      rightContentPadding + 29,
-                      if (suffixIcon != null) ...[
-                        if (suffixIcon != null) iconSquareSizeFinal,
-                        iconToInputFieldGap,
-                      ]
-                    ].reduce((value, element) => value + element),
-                    iconSquareSizeFinal + 12,
-                  ),
-                ),
-                prefixIcon: prefixIcon,
-              ),
-        validator: validator,
-        onFieldSubmitted: onSubmitted,
-        onChanged: onChanged,
+    final defaultDecoratedInputBorder = DecoratedInputBorder(
+      shadow: const [
+        BoxShadow(
+          color: Colors.black12,
+          blurRadius: 12,
+        )
+      ],
+      child: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(radius),
+        borderSide: useBorderSide
+            ? const BorderSide(width: 1.5, color: whiteOpacity6)
+            : BorderSide.none,
       ),
+    );
+
+    final defaultErrorDecoratedInputBorder = DecoratedInputBorder(
+      shadow: const [
+        BoxShadow(
+          color: Colors.black12,
+          blurRadius: 12,
+        )
+      ],
+      child: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(radius),
+        borderSide: useBorderSide
+            ? BorderSide(
+                width: 1.5,
+                color: errorText != null ? borderError : borderActive)
+            : BorderSide.none,
+      ),
+    );
+
+    return TextFormField(
+      obscureText: obsureText,
+      inputFormatters: inputTypeFormatters,
+      keyboardType: textInputType,
+      style: TextStyle(
+          color: Colors.white, fontSize: 5, fontWeight: FontWeight.w500),
+      enabled: enabled,
+      textAlign: textAlign,
+      controller: textEditingController,
+      maxLines: maxLines,
+      decoration: collapsedInputDecoration
+          ? InputDecoration.collapsed(
+              floatingLabelBehavior: FloatingLabelBehavior.never,
+              filled: true,
+              fillColor: filledColor ?? Color(0xFF253D42),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius),
+                borderSide: useBorderSide
+                    ? const BorderSide(width: 1.5, color: whiteOpacity6)
+                    : BorderSide.none,
+              ),
+              hintText: hintText,
+              hintStyle: hintStyle,
+            )
+          : InputDecoration(
+              contentPadding: const EdgeInsets.symmetric(vertical: 4),
+              floatingLabelBehavior: FloatingLabelBehavior.never,
+              filled: true,
+              fillColor: filledColor ?? Color(0xFF253D42),
+              border: defaultDecoratedInputBorder,
+              enabledBorder: defaultDecoratedInputBorder,
+              disabledBorder: defaultDecoratedInputBorder,
+              focusedBorder: defaultErrorDecoratedInputBorder,
+              focusedErrorBorder: defaultErrorDecoratedInputBorder,
+              labelText: labelText,
+              labelStyle: labelStyle,
+              hintText: hintText,
+              hintStyle: hintStyle,
+              errorText: errorText,
+              errorStyle: errorStyle,
+              suffixIcon: suffixIcon,
+              // suffixIconConstraints: BoxConstraints.tight(
+              //   const Size(30, 20),
+              // ),
+              suffixIconConstraints: BoxConstraints.tight(
+                Size(
+                  [
+                    rightContentPadding,
+                    if (suffixIcon != null) ...[
+                      if (suffixIcon != null) iconSquareSizeFinal,
+                      iconToInputFieldGap,
+                    ]
+                  ].reduce((value, element) => value + element),
+                  iconSquareSizeFinal + 12,
+                ),
+              ),
+              prefixIcon: prefixIcon,
+            ),
+      validator: validator,
+      onFieldSubmitted: onSubmitted,
+      onChanged: onChanged,
     );
   }
 }

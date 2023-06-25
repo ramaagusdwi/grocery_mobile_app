@@ -63,6 +63,12 @@ const textStyle12SilverColor = TextStyle(
   fontSize: 12,
 );
 
+const textStyle14SilverColor = TextStyle(
+  color: silverColor,
+  fontSize: 14,
+);
+
+
 
 
 
