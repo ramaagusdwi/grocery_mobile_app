@@ -52,6 +52,64 @@ class HomeScreen extends StatelessWidget {
                 children: categories
                     .map((category) => _cardCategories(category))
                     .toList()),
+            SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Deals',
+                  style: textStyle14BlackColorBold,
+                ),
+                Text(
+                  'See All',
+                  style: textStyle14PrimaryColorBold,
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            Card(
+              color: greenCyan,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '50% OFF',
+                          style: textStyle16BlackColorBold,
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          'On Grocery Combo Packs',
+                          style: textStyle14BlackColorRegular,
+                        ),
+                        SizedBox(height: 10),
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            backgroundColor: primaryColor,
+                            foregroundColor: whiteColor,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 0),
+                            textStyle: const TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.w500),
+                          ),
+                          onPressed: () {},
+                          child: const Text('Order Now'),
+                        ),
+                      ],
+                    ),
+                    Image.asset(
+                      'images/fruits_and_vegetables.png',
+                      height: 90,
+                      width: 90,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

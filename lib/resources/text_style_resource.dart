@@ -58,6 +58,9 @@ const textStyle10BlackColorMedium =
 const textStyle14BlackColorBold =
     TextStyle(color: blackColor, fontSize: 14, fontWeight: FontWeight.bold);
 
+const textStyle16BlackColorBold =
+    TextStyle(color: blackColor, fontSize: 16, fontWeight: FontWeight.bold);    
+
 const textStyle10BlackSecondaryTextColor = TextStyle(
   color: secondaryTextColor,
   fontSize: 10,
