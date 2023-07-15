@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
 import 'package:grocery_delivery_mobile_app/widgets/gap_height.dart';
 
-
-
 class SideBarLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,7 @@ class SideBarLayout extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             const DrawerHeader(
+            const DrawerHeader(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -35,11 +33,9 @@ class SideBarLayout extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
-                children:  [
+                children: [
                   GestureDetector(
-                    onTap: () {
-                      
-                    },
+                    onTap: () {},
                     child: const ListTile(
                       leading: Icon(Icons.list_alt_sharp,
                           size: 24, color: Colors.white),
@@ -48,7 +44,7 @@ class SideBarLayout extends StatelessWidget {
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
-                  ),                 
+                  ),
                   ListTile(
                     leading:
                         Icon(Icons.discount, size: 24, color: Colors.white),
@@ -57,7 +53,7 @@ class SideBarLayout extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
-                   ListTile(
+                  ListTile(
                     leading: Icon(Icons.history_edu_sharp,
                         size: 24, color: Colors.white),
                     title: Text(
@@ -65,39 +61,28 @@ class SideBarLayout extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
-                   ListTile(
-                    leading:
-                        Icon(Icons.groups, size: 24, color: Colors.white),
+                  ListTile(
+                    leading: Icon(Icons.groups, size: 24, color: Colors.white),
                     title: Text(
                       'Refer & Earn',
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
                   ListTile(
-                    leading:
-                        Icon(Icons.groups, size: 24, color: Colors.white),
-                    title: Text(
-                      'Refer & Earn',
-                      style: TextStyle(color: Colors.white, fontSize: 16),
-                    ),
-                  ),
-                   ListTile(
-                    leading:
-                        Icon(Icons.phone, size: 24, color: Colors.white),
+                    leading: Icon(Icons.phone, size: 24, color: Colors.white),
                     title: Text(
                       'Contact Us',
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
                   ListTile(
-                    leading:
-                        Icon(Icons.logout, size: 24, color: Colors.white),
+                    leading: Icon(Icons.logout, size: 24, color: Colors.white),
                     title: Text(
                       'Help Center',
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
-                   ListTile(
+                  ListTile(
                     leading:
                         Icon(Icons.star_border, size: 24, color: Colors.white),
                     title: Text(
@@ -114,8 +99,7 @@ class SideBarLayout extends StatelessWidget {
                     ),
                   ),
                   ListTile(
-                    leading:
-                        Icon(Icons.logout, size: 24, color: Colors.white),
+                    leading: Icon(Icons.logout, size: 24, color: Colors.white),
                     title: Text(
                       'Logout',
                       style: TextStyle(color: Colors.white, fontSize: 16),
