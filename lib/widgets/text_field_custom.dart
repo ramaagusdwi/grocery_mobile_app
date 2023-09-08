@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
   final Function(String?)? onChanged;
   final double? iconSquareSize;
   final double radius;
-  final double heightTextField;
+
 
   CustomTextField({
     required this.textEditingController,
@@ -36,7 +36,6 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     required this.hintStyle,
     required this.validator,
-    required this.heightTextField,
     this.suffixIcon,
     this.prefixIcon,
     this.obsureText = false,
