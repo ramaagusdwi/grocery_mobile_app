@@ -113,7 +113,7 @@ class CustomTextField extends StatelessWidget {
       textAlign: textAlign,
       controller: textEditingController,
       maxLines: maxLines,
-      decoration: collapsedInputDecoration
+      decoration: collapsedInputDecoration //untuk collapsesd
           ? InputDecoration.collapsed(
               floatingLabelBehavior: FloatingLabelBehavior.never,
               filled: true,
