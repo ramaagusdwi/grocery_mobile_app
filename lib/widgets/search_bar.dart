@@ -13,7 +13,6 @@ class GrocerySearchBar extends StatelessWidget {
     final TextEditingController searchController = TextEditingController();
 
     return CustomTextField(
-  
       prefixIcon: const Icon(Icons.search, color: blackColor),
       suffixIcon: Container(
         decoration: const BoxDecoration(
