@@ -2,7 +2,7 @@ import 'package:control_style/control_style.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_delivery_mobile_app/resources/color_resource.dart';
 import 'package:grocery_delivery_mobile_app/resources/text_style_resource.dart';
-import 'package:grocery_delivery_mobile_app/widgets/search_bar.dart';
+import 'package:grocery_delivery_mobile_app/widgets/grocery_search_bar.dart';
 
 class Categories {
   String assetImage;
